@@ -16,6 +16,9 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+		$em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+		$repository = $em->getRepository("");
+
         return new ViewModel();
     }
 }
