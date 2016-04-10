@@ -13,11 +13,11 @@ class IndexController extends AbstractActionController
 		$em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 		$repository = $em->getRepository('Application\Entity\Categoria');
 
-		$categoria = new Categoria();
-		$categoria->setNome("Laptops");
-
-		$em->persist($categoria); // preparar para gravar
-		$em->flush(); // grava no banco
+//		$categoria = new Categoria();
+//		$categoria->setNome("Laptops");
+//
+//		$em->persist($categoria); // preparar para gravar
+//		$em->flush(); // grava no banco
 
 		$categorias = $repository->findAll();
 

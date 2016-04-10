@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="Application\Entity\CategoriaRepository")
  * @ORM\Table(name="categorias")
- *
- * @package Application\Entity
  */
 class Categoria
 {
