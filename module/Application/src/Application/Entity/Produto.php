@@ -47,6 +47,8 @@ class Produto
 	public function setId($id)
 	{
 		$this->id = $id;
+
+		return $this;
 	}
 
 	/**
@@ -60,9 +62,10 @@ class Produto
 	/**
 	 * @param mixed $categoria
 	 */
-	public function setCategoria($categoria)
+	public function setCategoria(Categoria $categoria)
 	{
 		$this->categoria = $categoria;
+		return $this;
 	}
 
 	/**
@@ -79,6 +82,8 @@ class Produto
 	public function setNome($nome)
 	{
 		$this->nome = $nome;
+
+		return $this;
 	}
 
 	/**
@@ -95,5 +100,7 @@ class Produto
 	public function setDescricao($descricao)
 	{
 		$this->descricao = $descricao;
+
+		return $this;
 	}
 }

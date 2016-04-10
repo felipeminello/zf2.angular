@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Entity\Categoria;
+use Application\Entity\Produto;
 
 class IndexController extends AbstractActionController
 {
@@ -20,6 +21,16 @@ class IndexController extends AbstractActionController
 //		$em->flush(); // grava no banco
 
 		$categorias = $repository->findAll();
+
+		$categoria = $repository->find(1);
+
+		$produto = new Produto();
+		$produto->setNome('Game B')
+				->setDescricao('Game B é muito legal')
+				->setCategoria($categoria);
+
+		$em->persist($produto);
+		$em->flush();
 
         return new ViewModel(array('categorias' => $categorias));
     }
