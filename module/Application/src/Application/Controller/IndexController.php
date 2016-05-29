@@ -20,8 +20,8 @@ class IndexController extends AbstractActionController
 //		$em->persist($categoria); // preparar para gravar
 //		$em->flush(); // grava no banco
 
-		$produtoService = $this->getServiceLocator()->get('Application\Service\Produto');
-		$produtoService->delete(2);
+//		$produtoService = $this->getServiceLocator()->get('Application\Service\Produto');
+//		$produtoService->delete(2);
 
 		$categorias = $repository->findAll();
 

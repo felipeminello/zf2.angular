@@ -6,10 +6,24 @@ return array(
 	'router' => array(
 		'routes' => array(
 			'user-auth' => array(
-
+				'type'    => 'Literal',
+				'options' => array(
+					'route'    => '/auth',
+					'defaults' => array(
+						'controller' => 'User\Controller\Auth',
+						'action'     => 'index'
+					)
+				)
 			)
 		)
 	),
+
+	'controllers' => array(
+		'invokables' => array(
+			'User\Controller\Auth' => 'User\Controller\AuthController'
+		)
+	),
+
 	'doctrine' => array(
 		'driver' => array(
 			__NAMESPACE__ . '_driver' => array(
@@ -17,9 +31,9 @@ return array(
 				'cache' => 'array',
 				'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
 			),
-			'orm_default' => array(
+			'orm_default'             => array(
 				'drivers' => array(
-					__NAMESPACE__.'\Entity' => __NAMESPACE__ . '_driver'
+					__NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
 				)
 			)
 		)

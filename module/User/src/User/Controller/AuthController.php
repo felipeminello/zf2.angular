@@ -27,7 +27,8 @@ class AuthController extends AbstractActionController
 
 			if ($result->isValid()) {
 				$sessionStorage->write($auth->getIdentity()['user'], null);
-				
+
+				//TODO Implementar retorno em JSON
 			} else {
 
 			}
