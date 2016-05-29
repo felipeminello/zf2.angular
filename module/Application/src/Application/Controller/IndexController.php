@@ -20,17 +20,20 @@ class IndexController extends AbstractActionController
 //		$em->persist($categoria); // preparar para gravar
 //		$em->flush(); // grava no banco
 
+		$produtoService = $this->getServiceLocator()->get('Application\Service\Produto');
+		$produtoService->delete(2);
+
 		$categorias = $repository->findAll();
 
-		$categoria = $repository->find(1);
-
-		$produto = new Produto();
-		$produto->setNome('Game B')
-				->setDescricao('Game B é muito legal')
-				->setCategoria($categoria);
-
-		$em->persist($produto);
-		$em->flush();
+//		$categoria = $repository->find(1);
+//
+//		$produto = new Produto();
+//		$produto->setNome('Game B')
+//				->setDescricao('Game B é muito legal')
+//				->setCategoria($categoria);
+//
+//		$em->persist($produto);
+//		$em->flush();
 
         return new ViewModel(array('categorias' => $categorias));
     }

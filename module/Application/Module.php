@@ -9,6 +9,8 @@
 
 namespace Application;
 
+use Application\Service\Categoria;
+use Application\Service\Produto;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
@@ -25,6 +27,28 @@ class Module
     {
         return include __DIR__ . '/config/module.config.php';
     }
+
+	public function getServiceConfig()
+	{
+		return array(
+			'factories' => array(
+				'Application\Service\Categoria' => function($sm) {
+					$em = $sm->get('Doctrine\ORM\EntityManager');
+
+					$categoriaService = new Categoria($em);
+
+					return $categoriaService;
+				},
+				'Application\Service\Produto' => function($sm) {
+					$em = $sm->get('Doctrine\ORM\EntityManager');
+
+					$produtoService = new Produto($em);
+
+					return $produtoService;
+				}
+			)
+		);
+	}
 
     public function getAutoloaderConfig()
     {
