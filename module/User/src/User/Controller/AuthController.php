@@ -19,7 +19,18 @@ class AuthController extends AbstractActionController
 			$sessionStorage = new SessionStorage();
 			$auth->setStorage($sessionStorage);
 
-			
+			$authAdapter = $this->getServiceLocator()->get('User\Auth\DoctrineAdapter');
+			$authAdapter->setUsername($data['username'])
+						->setPassword($data['password']);
+
+			$result = $auth->authenticate($authAdapter);
+
+			if ($result->isValid()) {
+				$sessionStorage->write($auth->getIdentity()['user'], null);
+				
+			} else {
+
+			}
 		}
 	}
 }
