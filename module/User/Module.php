@@ -4,6 +4,17 @@ namespace User;
 
 class Module
 {
+	public function getServiceConfig()
+	{
+		return array(
+			'factories' => array(
+				'User\Auth\DoctrineAdapter' => function($sm) {
+					return new Auth\DoctrineAdapter($sm->get('Doctrine\ORM\EntityManager'));
+				}
+			)
+		);
+	}
+
 	public function getAutoloaderConfig()
 	{
 		return array(
