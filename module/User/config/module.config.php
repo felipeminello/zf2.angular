@@ -6,7 +6,7 @@ return array(
 	'router' => array(
 		'routes' => array(
 			'user-auth' => array(
-				
+
 			)
 		)
 	),
