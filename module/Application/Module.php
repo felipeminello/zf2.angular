@@ -10,6 +10,7 @@
 namespace Application;
 
 use Application\Service\Categoria;
+use Application\Service\Produto;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
@@ -37,6 +38,13 @@ class Module
 					$categoriaService = new Categoria($em);
 
 					return $categoriaService;
+				},
+				'Application\Service\Produto' => function($sm) {
+					$em = $sm->get('Doctrine\ORM\EntityManager');
+
+					$produtoService = new Produto($em);
+
+					return $produtoService;
 				}
 			)
 		);
