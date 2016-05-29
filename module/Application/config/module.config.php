@@ -101,17 +101,20 @@ return array(
 	),
 
 	'doctrine' => array(
-		'driver' => array(
+		'driver'  => array(
 			__NAMESPACE__ . '_driver' => array(
 				'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
 				'cache' => 'array',
 				'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
 			),
-			'orm_default' => array(
+			'orm_default'             => array(
 				'drivers' => array(
-					__NAMESPACE__.'\Entity' => __NAMESPACE__ . '_driver'
+					__NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
 				)
 			)
+		),
+		'fixture' => array(
+			'Application_fixture' => __DIR__ . '/../src/' . __NAMESPACE__ . '/Fixture',
 		)
 	)
 );
