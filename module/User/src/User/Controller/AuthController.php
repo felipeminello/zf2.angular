@@ -5,6 +5,7 @@ namespace User\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\Storage\Session as SessionStorage;
+use Zend\View\Model\JsonModel;
 
 class AuthController extends AbstractActionController
 {
@@ -28,10 +29,12 @@ class AuthController extends AbstractActionController
 			if ($result->isValid()) {
 				$sessionStorage->write($auth->getIdentity()['user'], null);
 
-				//TODO Implementar retorno em JSON
+				return new JsonModel(array('success' => true));
 			} else {
-
+				return new JsonModel(array('success' => false));
 			}
 		}
+
+		return new JsonModel(array('success' => false));
 	}
 }

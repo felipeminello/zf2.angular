@@ -24,6 +24,12 @@ return array(
 		)
 	),
 
+	'view_manager' => array(
+		'strategies' => array(
+			'ViewJsonStrategy'
+		)
+	),
+
 	'doctrine' => array(
 		'driver' => array(
 			__NAMESPACE__ . '_driver' => array(
